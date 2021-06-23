@@ -1,5 +1,5 @@
 ---
-title: "compliance_testing"
+title: "compliance_testing_0.1"
 author: "Richard Leyshon"
 date: "`r format(Sys.Date(), '%d/%m/%y')`"
 lang: "en"
@@ -31,7 +31,7 @@ summary(cars)
 
 You can also embed plots, for example:
 
-```{r echo=FALSE, fig.alt="Some placeholder alt text for a chart"}
+```{r plot, echo=FALSE, fig.alt="Some placeholder alt text for a chart"}
 plot(pressure)
 ```
 
