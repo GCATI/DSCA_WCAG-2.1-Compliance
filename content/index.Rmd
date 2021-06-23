@@ -2,13 +2,13 @@
 title: "compliance_testing"
 author: "Richard Leyshon"
 date: "`r format(Sys.Date(), '%d/%m/%y')`"
+lang: "en"
 output:
   html_document:
     toc: true
     toc_float: true
     number_sections: true
 ---
-<html lang='en'>
 
 
 
