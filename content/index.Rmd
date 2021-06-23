@@ -32,16 +32,20 @@ summary(cars)
 
 You can also embed plots, for example:
 
-```{r plot, echo=FALSE, fig.alt="Some placeholder alt text for a chart"}
+```{r plot, echo=TRUE, fig.alt="Some placeholder alt text for a chart"}
 plot(pressure)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+The above uses the `fig.alt` option on a base R plot. This causes an issue on [WAVE](https://wave.webaim.org/report#/https://datasciencecampus.github.io/DSCA_WCAG-2.1-Compliance/) as the image title attribute is set to the same value as the alt text.
 
 
-```{r plot2, echo=FALSE, fig.alt="Some placeholder alt text for a chart"}
+```{r plot2, echo=TRUE, fig.alt="Some different alt text for a chart"}
 
 ggplot(data = pressure, aes(temperature, pressure)) +
   geom_point() +
   labs(title  = "Some placeholder title")
 ```
+
+Again, using `fig.alt` option above but this time specifying a chart title using {ggplot2} syntax does not resolve the issue with title and alt attributes having the same value. 
+
+
