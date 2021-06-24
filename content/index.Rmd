@@ -1,5 +1,5 @@
 ---
-title: "compliance_testing_0.2"
+title: "compliance_testing_0.3"
 author: "Richard Leyshon"
 date: "`r format(Sys.Date(), '%d/%m/%y')`"
 lang: "en"
@@ -38,6 +38,7 @@ plot(pressure)
 
 The above uses the `fig.alt` option on a base R plot. This causes an issue on [WAVE](https://wave.webaim.org/report#/https://datasciencecampus.github.io/DSCA_WCAG-2.1-Compliance/) as the image title attribute is set to the same value as the alt text.
 
+***
 
 ```{r plot2, echo=TRUE, fig.alt="Some different alt text for a chart"}
 
@@ -48,4 +49,11 @@ ggplot(data = pressure, aes(temperature, pressure)) +
 
 Again, using `fig.alt` option above but this time specifying a chart title using {ggplot2} syntax does not resolve the issue with title and alt attributes having the same value. 
 
+***
 
+```{r plot3, echo=TRUE, fig.cap="Using fig.cap instead"}
+
+ggplot(data = pressure, aes(temperature, pressure)) +
+  geom_point() +
+  labs(title  = "Some placeholder title")
+```
