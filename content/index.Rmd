@@ -141,6 +141,7 @@ Counterintuitively, the chunk option `comment=""` affects the chunk output rathe
 
 ## To do
 
+* Apply joint branding template.
 * webpage regions - need greater control over YAML header / supplement with inline html  
 * Try Thom Mock's alt text for charts implementation. Does this neatly fix the duplicate title / text issue.  
 * styling of chunk outputs
