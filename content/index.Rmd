@@ -75,9 +75,9 @@ ggplot(data = pressure, aes(temperature, pressure)) +
 
 ***
 
-Joo young Seo suggests the use of {BrailleR} (among others) for improving VI access of data & charts. Not published to CRAN at time of writing. Maintainer appears to be working on it.
+[Joo Young Seo](#res) suggests the use of {BrailleR} (among others) for improving VI access of data & charts. Not published to CRAN at time of writing. Maintainer appears to be working on CRAN submission.
 
-```{r, echo=FALSE}
+```{r, echo=TRUE}
 # devtools::install_github("ajrgodfrey/BrailleR")
 library(BrailleR)
 ```

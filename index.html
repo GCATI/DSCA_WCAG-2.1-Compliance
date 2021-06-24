@@ -1551,7 +1551,9 @@ Using fig.cap instead
 Using p tags for alt text.
 </p>
 <hr />
-<p>Joo young Seo suggests the use of {BrailleR} (among others) for improving VI access of data &amp; charts. Not published to CRAN at time of writing. Maintainer appears to be working on it.</p>
+<p><a href="#res">Joo Young Seo</a> suggests the use of {BrailleR} (among others) for improving VI access of data &amp; charts. Not published to CRAN at time of writing. Maintainer appears to be working on CRAN submission.</p>
+<pre class="r"><code># devtools::install_github(&quot;ajrgodfrey/BrailleR&quot;)
+library(BrailleR)</code></pre>
 <pre class="r"><code>VI(ggplot(data = pressure, aes(temperature, pressure)) +
   geom_point() +
   labs(title  = &quot;Some placeholder title&quot;))</code></pre>
