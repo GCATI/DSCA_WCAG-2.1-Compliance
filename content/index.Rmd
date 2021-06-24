@@ -1,5 +1,5 @@
 ---
-title: "compliance_testing_0.6"
+title: "compliance_testing_0.7"
 author: "Richard Leyshon"
 date: "`r format(Sys.Date(), '%d/%m/%y')`"
 lang: "en"
@@ -64,11 +64,10 @@ Using the `fig.cap` chunk option avoids the issue with redundant title warning t
 
 Joo young Seo suggests the use of {BrailleR} (among others) for improving VI access of data & charts. Not published to CRAN at time of writing. Maintainer appears to be working on it.
 
-```{r}
+```{r, echo=FALSE}
 # devtools::install_github("ajrgodfrey/BrailleR")
 library(BrailleR)
 ```
-Option 1 selected.
 
 ```{r plot4, echo=TRUE, comment=""}
 
@@ -77,7 +76,24 @@ VI(ggplot(data = pressure, aes(temperature, pressure)) +
   labs(title  = "Some placeholder title"))
 ```
 
+### Alt Text Structure
 
+This section is mostly from Cesal, 2020 (see [Resources](#res)).
+
+![Breakdown of alt text for charts.](../images/chart_alt.jpg)
+So for the following New york Times chart:
+
+![Bar chart of gun murders per 100,00 people where America's murder rate is 6 times worse than Canada, and 30 times Australia](../images/nyt_chart.jpg)
+Alt text as below is suggested:
+![Sample alt text for the NYT chart](../images/alt_example.jpg)
+
+Or for a more complex chart, such as [Warming Stripes, Hawkins](#res):
+
+![Coloured stripes of chronologically ordered temperatures where they increase in red to show the warming global temperature](../images/_stripes_GLOBE---1850-2020-MO.png)
+
+Alt text suggested:
+
+![Suggested alt text for warming stripes image](../images/alt_example_complex.jpg)
 
 ***
 ***
@@ -97,10 +113,18 @@ Counterintuitively, the chunk option `comment=""` affects the chunk output rathe
 
 
 
-## Resources
+## Resources {#res}
 
 [Yihui, Rmarkdown cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/html-accessibility.html)
 
 [A. Jonathan R. Godfrey, 2018](https://r-resources.massey.ac.nz/rmarkdown/)
 
 [Joo Young Seo, 2020](https://jooyoungseo.com/post/ds4blind/)
+
+[Mock, 2021](https://themockup.blog/posts/2021-04-01-three-years-of-tidytuesday/#alt-text-for-graphs)
+
+[Cesal, 2020](https://medium.com/nightingale/writing-alt-text-for-data-visualization-2a218ef43f81)
+
+[Canelon & Hare, 2021](https://silvia.rbind.io/talk/2021-05-04-data-viz-accessibility/)
+
+[Hawkins, Show Your Stripes](https://showyourstripes.info/)
