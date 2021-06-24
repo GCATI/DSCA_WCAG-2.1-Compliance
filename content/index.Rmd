@@ -1,5 +1,5 @@
 ---
-title: "compliance_testing_0.5"
+title: "compliance_testing_0.6"
 author: "Richard Leyshon"
 date: "`r format(Sys.Date(), '%d/%m/%y')`"
 lang: "en"
@@ -28,7 +28,7 @@ When you click the **Knit** button a document will be generated that includes bo
 summary(cars)
 ```
 
-## Including Plots
+## Plot Alt Text
 
 You can also embed plots, for example:
 
@@ -60,6 +60,27 @@ ggplot(data = pressure, aes(temperature, pressure)) +
 
 Using the `fig.cap` chunk option avoids the issue with redundant title warning that comes with `fig.alt`. This provides a redundant text warning which I feel is more helpful than the redundant title warning for VI learners. Note that specifying the YAML option `fig_caption: false` does not resolve this issue, instead raising the redundant title warning again. This means [screen reader users will hear the text twice](https://r-resources.massey.ac.nz/rmarkdown/)
 
+***
+
+Joo young Seo suggests the use of {BrailleR} (among others) for improving VI access of data & charts. Not published to CRAN at time of writing. Maintainer appears to be working on it.
+
+```{r}
+# devtools::install_github("ajrgodfrey/BrailleR")
+library(BrailleR)
+```
+Option 1 selected.
+
+```{r plot4, echo=TRUE, comment=""}
+
+VI(ggplot(data = pressure, aes(temperature, pressure)) +
+  geom_point() +
+  labs(title  = "Some placeholder title"))
+```
+
+
+
+***
+***
 
 ## Code Output
 
@@ -81,3 +102,5 @@ Counterintuitively, the chunk option `comment=""` affects the chunk output rathe
 [Yihui, Rmarkdown cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/html-accessibility.html)
 
 [A. Jonathan R. Godfrey, 2018](https://r-resources.massey.ac.nz/rmarkdown/)
+
+[Joo Young Seo, 2020](https://jooyoungseo.com/post/ds4blind/)
