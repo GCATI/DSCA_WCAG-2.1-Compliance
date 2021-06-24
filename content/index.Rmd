@@ -1,5 +1,5 @@
 ---
-title: "compliance_testing_1.0"
+title: "compliance_testing_1.1"
 author: "Richard Leyshon"
 date: "`r format(Sys.Date(), '%d/%m/%y')`"
 lang: "en"
@@ -10,7 +10,8 @@ output:
     number_sections: true
 ---
 
-
+<body>
+  <article>
 
 ```{r include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -161,3 +162,5 @@ Counterintuitively, the chunk option `comment=""` affects the chunk output rathe
 * header hierarchy - css to adjust author & date header titles
 * header hierarchy - css to modify default appearance of h2s etc
 
+  </article>
+</body>
