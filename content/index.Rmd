@@ -1,5 +1,5 @@
 ---
-title: "compliance_testing_0.9"
+title: "compliance_testing_1.0"
 author: "Richard Leyshon"
 date: "`r format(Sys.Date(), '%d/%m/%y')`"
 lang: "en"
@@ -59,6 +59,19 @@ ggplot(data = pressure, aes(temperature, pressure)) +
 ```
 
 Using the `fig.cap` chunk option avoids the issue with redundant title warning that comes with `fig.alt`. This provides a redundant text warning which I feel is more helpful than the redundant title warning for VI learners. Note that specifying the YAML option `fig_caption: false` does not resolve this issue, instead raising the redundant title warning again. This means [screen reader users will hear the text twice](https://r-resources.massey.ac.nz/rmarkdown/)
+
+***
+
+As advised by contractor on 2021 accessibility audit: Include blank alt text followed by the alt text in HTML p tag.
+
+```{r blankalt, echo=TRUE, fig.cap=""}
+
+ggplot(data = pressure, aes(temperature, pressure)) +
+  geom_point() +
+  labs(title  = "Some placeholder title")
+```
+<p>Using p tags for alt text.</p>
+
 
 ***
 
