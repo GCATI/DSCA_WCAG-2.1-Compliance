@@ -1,5 +1,5 @@
 ---
-title: "compliance_testing_0.4"
+title: "compliance_testing_0.5"
 author: "Richard Leyshon"
 date: "`r format(Sys.Date(), '%d/%m/%y')`"
 lang: "en"
@@ -8,7 +8,6 @@ output:
     toc: true
     toc_float: true
     number_sections: true
-    fig_caption: false
 ---
 
 
@@ -59,4 +58,26 @@ ggplot(data = pressure, aes(temperature, pressure)) +
   labs(title  = "Some placeholder title")
 ```
 
-Using the `fig.cap` chunk option avoids the issue with redundant title warning that comes with `fig.alt`. However, the yaml option `fig_caption: false` must be used to avoid a redundant text warning.
+Using the `fig.cap` chunk option avoids the issue with redundant title warning that comes with `fig.alt`. This provides a redundant text warning which I feel is more helpful than the redundant title warning for VI learners. Note that specifying the YAML option `fig_caption: false` does not resolve this issue, instead raising the redundant title warning again. This means [screen reader users will hear the text twice](https://r-resources.massey.ac.nz/rmarkdown/)
+
+
+## Code Output
+
+```{r}
+# some unadjusted code with no chunk options
+1:100
+```
+
+```{r, comment=""}
+# adjusted chunk options: `comment=""`, as recommended in Yihui see resources section.
+1:100
+```
+Counterintuitively, the chunk option `comment=""` affects the chunk output rather than the appearance of code comments.
+
+
+
+## Resources
+
+[Yihui, Rmarkdown cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/html-accessibility.html)
+
+[A. Jonathan R. Godfrey, 2018](https://r-resources.massey.ac.nz/rmarkdown/)
