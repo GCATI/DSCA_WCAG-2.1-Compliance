@@ -1,5 +1,5 @@
 ---
-title: "compliance_testing_0.7"
+title: "compliance_testing_0.9"
 author: "Richard Leyshon"
 date: "`r format(Sys.Date(), '%d/%m/%y')`"
 lang: "en"
@@ -17,16 +17,16 @@ knitr::opts_chunk$set(echo = TRUE)
 library(ggplot2)
 ```
 
-## R Markdown
+## BLUF
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+* To see the accessibility check for this webpage, please visit [WAVE](https://wave.webaim.org/report#/https://datasciencecampus.github.io/DSCA_WCAG-2.1-Compliance/).  
+* Use `fig.cap` not `fig.alt` chunk option and tolerate duplicate text warning as suggested in [literature](#res).  
+* See [alt text guidance](#alt-guide).  
+* {Brailler} can automate descriptive chart alt text for **some** base and ggplots.  
+* Use chunk option `comment=""` to remove hashes preceding code output.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r}
-# some commented out code to review
-summary(cars)
-```
+***
+***
 
 ## Plot Alt Text
 
@@ -36,7 +36,7 @@ You can also embed plots, for example:
 plot(pressure)
 ```
 
-The above uses the `fig.alt` option on a base R plot. This causes an issue on [WAVE](https://wave.webaim.org/report#/https://datasciencecampus.github.io/DSCA_WCAG-2.1-Compliance/) as the image title attribute is set to the same value as the alt text.
+The above uses the `fig.alt` option on a base R plot. This causes an issue on WAVE as the image title attribute is set to the same value as the alt text.
 
 ***
 
@@ -76,16 +76,22 @@ VI(ggplot(data = pressure, aes(temperature, pressure)) +
   labs(title  = "Some placeholder title"))
 ```
 
-### Alt Text Structure
+***
+
+### Alt Text Structure {#alt-guide}
 
 This section is mostly from Cesal, 2020 (see [Resources](#res)).
 
 ![Breakdown of alt text for charts.](../images/chart_alt.jpg)
+***
+
 So for the following New york Times chart:
 
 ![Bar chart of gun murders per 100,00 people where America's murder rate is 6 times worse than Canada, and 30 times Australia](../images/nyt_chart.jpg)
 Alt text as below is suggested:
 ![Sample alt text for the NYT chart](../images/alt_example.jpg)
+
+***
 
 Or for a more complex chart, such as [Warming Stripes, Hawkins](#res):
 
@@ -111,7 +117,8 @@ Alt text suggested:
 ```
 Counterintuitively, the chunk option `comment=""` affects the chunk output rather than the appearance of code comments.
 
-
+***
+***
 
 ## Resources {#res}
 
@@ -128,3 +135,15 @@ Counterintuitively, the chunk option `comment=""` affects the chunk output rathe
 [Canelon & Hare, 2021](https://silvia.rbind.io/talk/2021-05-04-data-viz-accessibility/)
 
 [Hawkins, Show Your Stripes](https://showyourstripes.info/)
+
+***
+***
+
+## To do
+
+* webpage regions - need greater control over YAML header / supplement with inline html  
+* Try Thom Mock's alt text for charts implementation. Does this neatly fix the duplicate title / text issue.  
+* styling of chunk outputs
+* header hierarchy - css to adjust author & date header titles
+* header hierarchy - css to modify default appearance of h2s etc
+
