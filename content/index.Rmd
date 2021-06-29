@@ -79,6 +79,22 @@ ggplot(data = pressure, aes(temperature, pressure)) +
 
 ***
 
+Suggest using writing out chart to img, reading back in with alt text defined as per usual images.
+
+```{r write_img}
+tmp <- tempfile(fileext = ".png")
+ggsave(tmp, device = png())
+
+```
+
+![Tempfile chart alt text](`r tmp`)
+
+
+
+
+
+***
+
 [Joo Young Seo](#res) suggests the use of {BrailleR} (among others) for improving VI access of data & charts. Not published to CRAN at time of writing. Maintainer appears to be working on CRAN submission.
 
 ```{r, echo=TRUE}
