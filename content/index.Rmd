@@ -1,5 +1,5 @@
 ---
-title: "compliance_testing_1.3"
+title: "compliance_testing_1.4"
 author: "Richard Leyshon"
 date: "`r format(Sys.Date(), '%d/%m/%y')`"
 lang: "en"
@@ -89,6 +89,10 @@ ggsave(tmp, device = png())
 
 ![Tempfile chart alt text](`r tmp`)
 
+
+The above method results in `alt = ""`, that should only be used when the image is strictly decorative. The below image uses img html tags instead.
+
+<img src="`r tmp`" alt="Alt text reading from tempfile with img tags">
 
 
 
