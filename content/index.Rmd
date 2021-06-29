@@ -11,7 +11,6 @@ output:
 ---
 
 
-
 <body>
   <article>
 
@@ -20,14 +19,15 @@ knitr::opts_chunk$set(echo = TRUE)
 library(ggplot2)
 ```
 
+To see the accessibility check for this webpage, please visit [WAVE](https://wave.webaim.org/report#/https://datasciencecampus.github.io/DSCA_WCAG-2.1-Compliance/).
+
 ## BLUF
 
-* To see the accessibility check for this webpage, please visit [WAVE](https://wave.webaim.org/report#/https://datasciencecampus.github.io/DSCA_WCAG-2.1-Compliance/).  
+* Specify `lang: "en"` in the YAML.
 * Use `fig.cap` not `fig.alt` chunk option and tolerate duplicate text warning as suggested in [literature](#res).  
 * See [alt text guidance](#alt-guide).  
 * {Brailler} can automate descriptive chart alt text for **some** base and ggplots.  
 * Use chunk option `comment=""` to remove hashes preceding code output.
-* Specify `lang: "en"` in the YAML.
 
 ***
 ***
