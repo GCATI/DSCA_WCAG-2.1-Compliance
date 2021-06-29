@@ -1,5 +1,5 @@
 ---
-title: "compliance_testing_1.4"
+title: "compliance_testing_1.4.1"
 author: "Richard Leyshon"
 date: "`r format(Sys.Date(), '%d/%m/%y')`"
 lang: "en"
@@ -24,10 +24,13 @@ To see the accessibility check for this webpage, please visit [WAVE](https://wav
 ## BLUF
 
 * Specify `lang: "en"` in the YAML.
-* Use `fig.cap` not `fig.alt` chunk option and tolerate duplicate text warning as suggested in [literature](#res).  
 * See [alt text guidance](#alt-guide).  
 * {Brailler} can automate descriptive chart alt text for **some** base and ggplots.  
 * Use chunk option `comment=""` to remove hashes preceding code output.
+* Markdown image syntax is inconsistent for alt text. Suggest avoiding in favour of html img tags, defining the alt attribute.
+* Ideal solution for chart alt text: write the chart to `tempfile()` and read in using html img tag, specifying alt text atttribute.
+* Next best solution for chart alt text: Use `fig.cap` not `fig.alt` chunk option and tolerate duplicate text warning as suggested in [literature](#res).  
+
 
 ***
 ***
