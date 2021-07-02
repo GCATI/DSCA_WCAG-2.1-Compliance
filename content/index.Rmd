@@ -97,7 +97,26 @@ The above method results in `alt = ""`, that should only be used when the image 
 
 <img src="`r tmp`" alt="Alt text reading from tempfile with img tags">
 
+***
 
+### Using `access_img()`
+
+```{r, access_img}
+# load in function
+source("../R/access_img.R")
+access_img()
+```
+
+
+
+
+
+
+```{r, stop}
+
+stop("here")
+
+```
 
 
 ***

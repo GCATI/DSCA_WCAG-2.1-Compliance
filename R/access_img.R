@@ -13,8 +13,8 @@
 
 access_img <- function(img = last_plot(), alt = NULL, width = 500,
                        height = 500){
-  if(alt = NULL){
-    stop("Please include alt text")
+  if(is.null(alt)){
+    stop("Please include alt text.")
   }
   
 }
