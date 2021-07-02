@@ -17,5 +17,16 @@ access_head <- function(rmd_path = NULL, replace = FALSE){
   } else if(!grepl(pattern = ".rmd", x = rmd_path, ignore.case = TRUE)){
     stop("Ensure that an Rmd file is passed to rmd_path.")
   }
+  # read in the file lines
+  lines <- readLines(rmd_path)
+  # check for presence of YAML features
+  yaml_bounds <- grep(pattern = "---", lines)
+  # stop if YAML bounds not standard
+  if(length(yaml_bounds) == 0){
+    stop("YAML header not found.")
+  } else if(length(yaml_bounds) != 2){
+    stop("Non standard YAML found")
+  }
+  
 }
 
