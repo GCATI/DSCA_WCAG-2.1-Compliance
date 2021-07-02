@@ -9,12 +9,14 @@
 #' @return Inline HTML with the necessary structure for screen reader
 #' accessibility.
 #' 
-#' 
+#' @importFrom ggplot2 last_plot
 
 access_img <- function(img = last_plot(), alt = NULL, width = 500,
                        height = 500){
   if(is.null(alt)){
     stop("Please include alt text.")
+  } else if(is.null(img)){
+    stop("No img found.")
   }
   
 }
