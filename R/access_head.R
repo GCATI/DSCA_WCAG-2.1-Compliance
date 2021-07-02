@@ -7,7 +7,7 @@
 #' @return Adjust the Rmd YAML provided to `rmd_path`, improving its
 #' accessibility for screen readers.
 #' 
-#' @importFrom htmltools tags
+#' @importFrom htmltools tags withTags
 
 access_head <- function(rmd_path = NULL, replace = FALSE){
   if(is.null(rmd_path)){
@@ -32,6 +32,8 @@ access_head <- function(rmd_path = NULL, replace = FALSE){
   yaml_head <- lines[yaml_seq]
   # extract rmd body
   rmd_body <- setdiff(lines, yaml_head)
+  # append the body with element tags
+  rmd_body <- withTags(body(paste(rmd_body, collapse = "\n")))
   
 }
 
