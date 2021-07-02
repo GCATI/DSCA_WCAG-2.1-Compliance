@@ -7,8 +7,7 @@
 #' @return Adjust the Rmd YAML provided to `rmd_path`, improving its
 #' accessibility for screen readers.
 #' 
-#' @importFrom ggplot2 last_plot ggsave
-#' @importFrom htmltools tags$img
+#' @importFrom htmltools tags
 
 access_head <- function(rmd_path = NULL, replace = FALSE){
   if(is.null(rmd_path)){
@@ -27,6 +26,12 @@ access_head <- function(rmd_path = NULL, replace = FALSE){
   } else if(length(yaml_bounds) != 2){
     stop("Non standard YAML found")
   }
+  # produce yaml sequence
+  yaml_seq <- yaml_bounds[1]:yaml_bounds[2]
+  # extract yaml
+  yaml_head <- lines[yaml_seq]
+  # extract rmd body
+  rmd_body <- setdiff(lines, yaml_head)
   
 }
 
