@@ -1,5 +1,5 @@
 ## template gitignore 
-
+content/*.png
 **/git_ignore
 .DS_STORE
 **/__pycache__

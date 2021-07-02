@@ -1,5 +1,5 @@
 ---
-title: "compliance_testing_1.4.1"
+title: "compliance_testing_1.5"
 author: "Richard Leyshon"
 date: "`r format(Sys.Date(), '%d/%m/%y')`"
 lang: "en"
@@ -104,18 +104,9 @@ The above method results in `alt = ""`, that should only be used when the image 
 ```{r, access_img}
 # load in function
 source("../R/access_img.R")
-access_img()
-```
+library(htmltools) # dependency to be resolved if packaged
 
-
-
-
-
-
-```{r, stop}
-
-stop("here")
-
+access_img(alt = "Placeholder text set with access_img()", wid = 400, ht = 400)
 ```
 
 
@@ -200,6 +191,7 @@ Counterintuitively, the chunk option `comment=""` affects the chunk output rathe
 
 ## To do
 
+* `access_img()` is producing `content/Rplot001.png`. As that happens to be the location of the Rmd, I suggest this is due to the way in which Rmarkdown handles plots. Adding to .gitignore for time being.
 * Apply joint branding template.
 * webpage regions - need greater control over YAML header / supplement with inline html  
 * Try Thom Mock's alt text for charts implementation. Does this neatly fix the duplicate title / text issue.  
