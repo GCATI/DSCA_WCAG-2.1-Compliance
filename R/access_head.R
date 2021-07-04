@@ -9,6 +9,17 @@
 #' 
 #' @importFrom htmltools tags withTags
 
+
+# delete me ---------------------------------------------------------------
+library(htmltools)
+library(stringr)
+rmd_path = "content/test.Rmd"
+# delete me ---------------------------------------------------------------
+
+
+
+
+
 access_head <- function(rmd_path = NULL, replace = FALSE){
   if(is.null(rmd_path)){
     stop("rmd_path not found.")
@@ -38,8 +49,19 @@ access_head <- function(rmd_path = NULL, replace = FALSE){
   # Will need to identify YAML elements present and convert to html flexibly
   # remove YAML bounds "---"
   head <- setdiff(yaml_head, "---")
+  # Clean out the escape chars
+  # remove all besides the alphabets, numbers, : and /
+  # finding a simple implementation to remove single escapes is elusive
+  head <- gsub("[^A-Za-z0-9:/]", "", head)
+  
+  # create a list of head metadata
+  hd_meta <- 
+  
+  
   # find title
-  head[grepl("title:", head)]
+  hd_index <- grep("title:", head)
+  
+  head[hd_index]
 
   
   
