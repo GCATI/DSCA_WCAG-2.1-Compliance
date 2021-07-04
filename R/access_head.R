@@ -6,6 +6,8 @@
 #' @param replace Defaults to FALSE. Should the YAML be replaced or
 #' supplemented.
 #' 
+#' @param lang Identify the language of text content.
+#' 
 #' @return Adjust the Rmd YAML provided to `rmd_path`, improving its
 #' accessibility for screen readers. Only works with html output.
 #' 
@@ -22,7 +24,7 @@ rmd_path = "content/test.Rmd"
 
 
 
-access_head <- function(rmd_path = NULL, replace = FALSE){
+access_head <- function(rmd_path = NULL, replace = FALSE, lang = NULL){
   if(is.null(rmd_path)){
     stop("rmd_path not found.")
     
@@ -78,10 +80,9 @@ access_head <- function(rmd_path = NULL, replace = FALSE){
   html_h2s <- sapply(h2s, tags$h2, simplify = FALSE)
 
 # reassemble the accessible head ------------------------------------------
-
+  html_head <- tags$header(html_title, unname(html_h2s))
   
 
-  
-  
+
 }
 
