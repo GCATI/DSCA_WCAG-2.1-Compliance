@@ -82,7 +82,12 @@ access_head <- function(rmd_path = NULL, replace = FALSE, lang = NULL){
 # reassemble the accessible head ------------------------------------------
   html_head <- tags$header(html_title, unname(html_h2s))
   
-
+  # set the html lang
+  return(paste(
+    "<!DOCTYPE html>",
+    tags$html(html_head, rmd_body, lang = lang), sep = "\n"
+    )
+  )
 
 }
 
