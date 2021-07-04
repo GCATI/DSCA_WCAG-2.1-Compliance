@@ -19,7 +19,7 @@ access_head <- function(rmd_path = NULL, replace = FALSE){
   # read in the file lines
   lines <- readLines(rmd_path)
   # check for presence of YAML features
-  yaml_bounds <- grep(pattern = "---", lines)
+  yaml_bounds <- grep(pattern = "^---$", lines)
   # stop if YAML bounds not standard
   if(length(yaml_bounds) == 0){
     stop("YAML header not found.")
