@@ -46,7 +46,7 @@ access_head <- function(rmd_path = NULL, replace = FALSE, lang = NULL){
   # extract yaml
   yaml_head <- lines[yaml_seq]
   # extract rmd body
-  rmd_body <- lines[max(yaml_seq):length(lines)]
+  rmd_body <- lines[max(yaml_seq) + 1:length(lines)]
   # append the body with element tags
   rmd_body <- withTags(body(paste(rmd_body, collapse = "\n")))
 # dynamic head logic ------------------------------------------------------
