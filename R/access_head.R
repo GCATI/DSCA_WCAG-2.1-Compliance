@@ -64,12 +64,22 @@ access_head <- function(rmd_path = NULL, replace = FALSE){
   # remove all besides the alphabets, numbers, : and /
   # finding a simple implementation to remove single escapes is elusive
   head <- gsub("[^A-Za-z0-9:/]", "", head)
-  # split the metadata on column and assign as named vector
-  meta_list <- str_split(head, pattern = ":")
   # find title
-  hd_index <- grep("title:", head)
+  title_index <- grep("title:", head)
+  # produce the accessible title
+  html_title <- tags$title(
+    h1(str_split(head[title_index], pattern = ":")[[1]][2])
+  )
+  # find indices for additional header titles
+  hd_indices <- grep("author:|date:", head)
+  # produce the accessible h2 titles styled as h4
+  h2s <- sapply(str_split(head[hd_indices], pattern = ":"), "[[", 2)
+  # produce the accessible headers
+  html_h2s <- sapply(h2s, tags$h2, simplify = FALSE)
+
+# reassemble the accessible head ------------------------------------------
+
   
-  head[hd_index]
 
   
   
