@@ -34,6 +34,14 @@ access_head <- function(rmd_path = NULL, replace = FALSE){
   rmd_body <- setdiff(lines, yaml_head)
   # append the body with element tags
   rmd_body <- withTags(body(paste(rmd_body, collapse = "\n")))
+# dynamic head logic ------------------------------------------------------
+  # Will need to identify YAML elements present and convert to html flexibly
+  # remove YAML bounds "---"
+  head <- setdiff(yaml_head, "---")
+  # find title
+  head[grepl("title:", head)]
+
+  
   
 }
 
